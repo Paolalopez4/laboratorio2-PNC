@@ -1,4 +1,4 @@
-package org.lab2ejercicio.el_sistema_de_los_7_mares.service.impl;
+package org.lab2ejercicio.el_sistema_de_los_7_mares.service;
 
 import org.lab2ejercicio.el_sistema_de_los_7_mares.domain.entity.Pirate;
 
@@ -9,6 +9,6 @@ public interface PirateService {
     void create(Pirate pirate);
     List<Pirate> findAll();
     Pirate findById(UUID id);
-    void update(Pirate pirate);
+    void update(UUID id, Pirate pirate);
     void deleteById(UUID id);
 }
