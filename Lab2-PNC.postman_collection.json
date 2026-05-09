@@ -1,0 +1,136 @@
+{
+  "info": {
+    "_postman_id": "c9e5a18f-06ed-4544-a190-b03806c9c6bc",
+    "name": "Lab2-PNC",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49124929",
+    "_collection_link": "https://go.postman.co/collection/49124929-c9e5a18f-06ed-4544-a190-b03806c9c6bc?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Pirate",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Roronoa Zoro\",\r\n  \"bounty\": 1111000000.0,\r\n  \"crew\": \"Straw Hat Pirates\",\r\n  \"isAlive\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/pirates",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "pirates"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Pirates",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/pirates",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "pirates"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Pirate By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/pirates/6eded70b-1e5e-49f5-9121-f18d63e862f1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "pirates",
+            "6eded70b-1e5e-49f5-9121-f18d63e862f1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Pirate",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Monkey D. Luffy\",\r\n    \"bounty\": 500000,\r\n    \"crew\": \"Straw Hat Pirates\",\r\n    \"isAlive\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/pirates/6eded70b-1e5e-49f5-9121-f18d63e862f1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "pirates",
+            "6eded70b-1e5e-49f5-9121-f18d63e862f1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Pirate By Id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Monkey D. Luffy\",\r\n    \"bounty\": 500000,\r\n    \"crew\": \"Straw Hat Pirates\",\r\n    \"isAlive\": true\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/pirates/08130230-fdf3-4ec0-a5f3-b4f062b121b4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "pirates",
+            "08130230-fdf3-4ec0-a5f3-b4f062b121b4"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
