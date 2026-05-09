@@ -4,20 +4,18 @@ import lombok.AllArgsConstructor;
 import org.lab2ejercicio.el_sistema_de_los_7_mares.domain.entity.Pirate;
 import org.lab2ejercicio.el_sistema_de_los_7_mares.service.impl.PirateServiceImpl;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/pirate")
+@RequestMapping("/api/pirates")
 @AllArgsConstructor
 public class PirateController {
     private final PirateServiceImpl pirateService;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<Pirate> create(@RequestBody Pirate pirate) {
         pirateService.create(pirate);
         return ResponseEntity
@@ -25,16 +23,16 @@ public class PirateController {
                 .body(pirate);
     }
 
-    @PostMapping("/findAll")
+    @GetMapping
     public ResponseEntity<List<Pirate>> findAll() {
         List<Pirate> pirates = pirateService.findAll();
         return ResponseEntity
                 .ok(pirates);
     }
 
-    @PostMapping("/findById")
-    public ResponseEntity<Pirate> findById(@RequestBody String id) {
-        Pirate pirate = pirateService.findById(java.util.UUID.fromString(id));
+    @GetMapping("/{id}")
+    public ResponseEntity<Pirate> findById(@PathVariable UUID id) {
+        Pirate pirate = pirateService.findById(id);
         if (pirate != null) {
             return ResponseEntity
                     .ok(pirate);
@@ -45,17 +43,16 @@ public class PirateController {
         }
     }
 
-    @PostMapping("/update")
-    public ResponseEntity<Void> update(@RequestBody Pirate pirate) {
-        pirateService.update(pirate.getId(), pirate);
+    @PutMapping("/{id}")
+    public ResponseEntity<Pirate> update(@PathVariable UUID id, @RequestBody Pirate pirate) {
+        pirateService.update(id, pirate);
         return ResponseEntity
-                .noContent()
-                .build();
+                .ok(pirate);
     }
 
-    @PostMapping("/deleteById")
-    public ResponseEntity<Void> deleteById(@RequestBody String id) {
-        pirateService.deleteById(java.util.UUID.fromString(id));
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable UUID id) {
+        pirateService.deleteById(id);
         return ResponseEntity
                 .noContent()
                 .build();
